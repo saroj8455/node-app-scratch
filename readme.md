@@ -63,3 +63,13 @@ require 'redcarpet'
 markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
+
+```javascript
+    HTTP/1.1  201
+    Location: /v1/items/12
+    Content-Type: application/json
+
+    {
+      "message": "The item was created successfully"
+    }
+```
