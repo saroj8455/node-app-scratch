@@ -11,3 +11,8 @@
 `npm i nodemon -D` <br>
 `npm install http-status-codes --save` <br>
 `npm install --save express-async-handler` <br>
+
+## Generate random token
+
+`node`<br>
+`require("crypto").randomBytes(64).toString("hex")` <br>
