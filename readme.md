@@ -64,6 +64,8 @@ markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
 
+## Rest-Api response format
+
 ```javascript
     HTTP/1.1  201
     Location: /v1/items/12
@@ -71,5 +73,55 @@ puts markdown.to_html
 
     {
       "message": "The item was created successfully"
+    }
+```
+
+```javascript
+    // 1- GET - HTTP Response Code: 404
+    HTTP/1.1  404
+    Content-Type: application/json
+
+    {
+      "message": "The item does not exist"
+    }
+    // 3- POST - HTTP Response Code: 400
+    HTTP/1.1  400
+    Content-Type: application/json
+
+    {
+        "message": "Validation errors in your request", /* skip or optional error message */
+        "errors": [
+            {
+                "message": "Oops! The value is invalid",
+                "code": 34,
+                "field": "email"
+            },
+            {
+                "message": "Oops! The format is not correct",
+                "code": 35,
+                "field": "phoneNumber"
+            }
+        ]
+    }
+    // 5- VERB Unauthorized - HTTP Response Code: 401
+    HTTP/1.1  401
+    Content-Type: application/json
+
+    {
+      "message": "Authentication credentials were missing or incorrect"
+    }
+    // 6- VERB Forbidden - HTTP Response Code: 403
+    HTTP/1.1  403
+    Content-Type: application/json
+
+    {
+      "message": "The request is understood, but it has been refused or access is not allowed"
+    }
+    // 9- VERB Internal Server Error - HTTP Response Code: 500
+    HTTP/1.1  500
+    Content-Type: application/json
+
+    {
+      "message": "Something is broken"
     }
 ```
