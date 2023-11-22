@@ -5,6 +5,7 @@ import UserRouter from './routes/user.route.js';
 import { Not_Found, errorHandeler } from './middleware/error.middleware.js';
 import { connectToDB } from './config/db.connection.js';
 import { verifyJwt } from './middleware/veryfyJwt.js';
+import path from 'path';
 
 dotenv.config();
 
@@ -27,6 +28,9 @@ app.get('/', verifyJwt, (req, res, next) => {
     verifiedUserId,
   });
 });
+
+// Serve static files
+app.use('/home', express.static(path.join(path.resolve(), '/views/')));
 
 app.get('/api/gen-token', (req, res, next) => {
   res.status(StatusCodes.OK).jsonp({

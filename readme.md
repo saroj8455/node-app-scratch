@@ -136,5 +136,7 @@ router
   .post(docsController.createDoc)
   .put(docsController.updateDoc)
   .delete(docsController.deleteDoc);
+
+router.get('/:id').get(docsController.getDocById);
 export default router;
 ```
