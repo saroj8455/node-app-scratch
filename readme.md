@@ -39,7 +39,7 @@
 `MONGO=mongoose_connection_string` <br>
 `PORT=port_no` <br>
 
-# 11XX : Http Errors
+## 11XX : Http Errors
 
     '1101': 'Unauthorized'
     '1102': 'Not authorized to access'
@@ -47,7 +47,7 @@
     '1104': 'Authentication Failed'
     '1105': 'Not Found'
 
-# 12XX : Auth Erorrs
+## 12XX : Auth Erorrs
 
     '1201': 'Your session is expired, please login again' # Token expired
     '1202': 'Your sessions is invalid' # JWT verification error
@@ -55,3 +55,11 @@
     '1204': 'Your sessions token is invalid' # Invalid token
     '1205': 'You are Unauthorized, Please login' # You are Unauthorized, Please login
     '1206': 'Authentication Error, User Not found' # Authentication Error, User Not found
+
+## Syntax highlighting
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
