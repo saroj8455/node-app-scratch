@@ -125,3 +125,16 @@ puts markdown.to_html
       "message": "Something is broken"
     }
 ```
+
+## Method Chaining in using express router
+
+```javascript
+const router = express.Router();
+router
+  .route('/api/docs')
+  .get(verifyJwt, docsController.getAllDocs)
+  .post(docsController.createDoc)
+  .put(docsController.updateDoc)
+  .delete(docsController.deleteDoc);
+export default router;
+```
